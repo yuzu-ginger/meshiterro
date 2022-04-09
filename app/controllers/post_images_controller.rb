@@ -6,13 +6,14 @@ class PostImagesController < ApplicationController
   # 投稿データの保存
   def create
     @post_image = PostImage.new(post_image_params)
-    
     # @post_image(投稿データ)のuser_idをcurrent_user.id(今ログインしているID)に指定することで,
-    #投稿データに今ログイン中のIDを持たせる
+    # 投稿データに今ログイン中のIDを持たせる
     @post_image.user_id = current_user.id
-    
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render :new
+    end
   end
 
   def index
