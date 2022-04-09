@@ -9,4 +9,6 @@
   # get 'post_image/edit'
   
   get "/homes/about" => "homes#about", as: "about"
+  # Usersコントローラのrouting
+  resources :users, only: [:show, :edit]
 end
