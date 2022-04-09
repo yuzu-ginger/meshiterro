@@ -10,5 +10,5 @@
   
   get "/homes/about" => "homes#about", as: "about"
   # Usersコントローラのrouting
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 end
